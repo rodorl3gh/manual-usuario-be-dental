@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Manual de Usuario - Be Dental</title>
+<style>
+:root {
+  --blue: #3E8FD6;
+  --blue-dark: #1E5A9C;
+  --blue-light: #EBF4FD;
+  --white: #ffffff;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-500: #6b7280;
+  --gray-700: #374151;
+  --gray-900: #111827;
+  --accent: #10B981;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--gray-700);background:var(--gray-50);line-height:1.7;font-size:15px}
+/* COVER */
+.cover{background:linear-gradient(135deg,var(--white) 0%,var(--blue-light) 40%,#d0e6f9 100%);min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:3rem 2rem;position:relative;overflow:hidden}
+.cover::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(62,143,214,.08) 0%,transparent 70%)}
+.cover::after{content:'';position:absolute;bottom:-30%;left:-15%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(30,90,156,.06) 0%,transparent 70%)}
+.cover-content{position:relative;z-index:1;max-width:700px}
+.cover-logo{width:100px;height:100px;border-radius:24px;background:var(--blue);display:flex;align-items:center;justify-content:center;margin:0 auto 2rem;box-shadow:0 20px 40px rgba(62,143,214,.3)}
+.cover-logo svg{width:52px;height:52px}
+.cover h1{font-size:2.8rem;font-weight:800;color:var(--blue-dark);margin-bottom:.5rem;letter-spacing:-.02em}
+.cover h2{font-size:1.3rem;font-weight:500;color:var(--gray-500);margin-bottom:1.5rem}
+.cover .subtitle{font-size:1rem;color:var(--gray-500);margin-bottom:3rem}
+.cover-line{width:80px;height:4px;background:var(--blue);border-radius:2px;margin:0 auto 2rem}
+.cover-info{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;color:var(--gray-500);font-size:.85rem}
+.cover-info span{display:flex;align-items:center;gap:.4rem}
+/* PAGE */
+.page{max-width:960px;margin:0 auto;padding:2rem}
+/* TO C */
+.toc{background:var(--white);border-radius:16px;padding:2rem;box-shadow:0 1px 3px rgba(0,0,0,.06);border:1px solid var(--gray-200);margin-bottom:3rem;page-break-before:always}
+.toc h2{font-size:1.5rem;font-weight:700;color:var(--blue-dark);margin-bottom:1.25rem}
+.toc ol{padding-left:1.5rem}
+.toc li{margin-bottom:.5rem;font-size:.95rem;color:var(--gray-700)}
+.toc li a{color:var(--blue);text-decoration:none;font-weight:500}
+.toc li a:hover{text-decoration:underline}
+/* SECTION */
+.section{background:var(--white);border-radius:16px;padding:2.5rem;box-shadow:0 1px 3px rgba(0,0,0,.06);border:1px solid var(--gray-200);margin-bottom:2.5rem;page-break-inside:avoid}
+.section-number{display:inline-block;width:40px;height:40px;border-radius:10px;background:var(--blue);color:var(--white);text-align:center;line-height:40px;font-weight:800;font-size:1.1rem;margin-bottom:1rem}
+.section h2{font-size:1.5rem;font-weight:700;color:var(--gray-900);margin-bottom:.75rem}
+.section p{color:var(--gray-500);margin-bottom:1rem;font-size:.95rem}
+.section ul,.section ol{padding-left:1.5rem;margin-bottom:1rem;color:var(--gray-500);font-size:.95rem}
+.section li{margin-bottom:.4rem}
+.section .tip{background:var(--blue-light);border-left:4px solid var(--blue);border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin-bottom:1.25rem;font-size:.9rem;color:var(--blue-dark)}
+.section .tip strong{color:var(--blue-dark)}
+.section img{width:100%;border-radius:12px;border:1px solid var(--gray-200);margin-top:.5rem;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.section .img-caption{text-align:center;font-size:.8rem;color:var(--gray-500);margin-top:.5rem;font-style:italic}
+/* STEPS */
+.steps{counter-reset:step;margin:1rem 0}
+.step{counter-increment:step;display:flex;gap:1rem;align-items:flex-start;margin-bottom:1rem}
+.step-num{width:32px;height:32px;border-radius:50%;background:var(--blue);color:var(--white);text-align:center;line-height:32px;font-weight:700;font-size:.85rem;flex-shrink:0}
+.step-content{flex:1}
+.step-content strong{color:var(--gray-900);display:block;margin-bottom:.15rem}
+.step-content span{color:var(--gray-500);font-size:.9rem}
+/* HEADER */
+.page-header{background:var(--white);border-bottom:1px solid var(--gray-200);padding:1.25rem 2rem;text-align:center;margin-bottom:2rem}
+.page-header h2{font-size:1.1rem;font-weight:600;color:var(--blue-dark)}
+/* BUTTONS */
+.btn{border:1px solid var(--gray-200);border-radius:6px;padding:.25rem .6rem;font-size:.8rem;font-weight:600;background:var(--gray-50);color:var(--gray-700)}
+.btn-blue{background:var(--blue);color:#fff;border-color:var(--blue)}
+.btn-red{background:#fef2f2;color:#dc2626;border-color:#fecaca}
+.btn-green{background:#ecfdf5;color:#059669;border-color:#a7f3d0}
+/* Print */
+@media print{
+  body{background:white}
+  .cover{min-height:auto;padding:4rem 2rem;page-break-after:always}
+  .section{box-shadow:none;border:1px solid #e5e7eb;page-break-inside:avoid}
+  .page{max-width:100%;padding:1.5rem}
+}
+@media(max-width:768px){
+  .cover h1{font-size:2rem}
+  .section{padding:1.5rem}
+}
+</style></head>
+<body>
+
+<!-- ====== PORTADA ====== -->
+<div class="cover">
+<div class="cover-content">
+<div class="cover-logo"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5C10.5 4 8.5 3 6 3c-3 0-5 2-5 5 0 3 2.5 5.5 5 7.5"/><path d="M12 5.5C13.5 4 15.5 3 18 3c3 0 5 2 5 5 0 3-2.5 5.5-5 7.5"/><path d="M12 21V5.5"/><path d="M12 13a2 2 0 100-4 2 2 0 000 4z"/></svg></div>
+<h1>Be Dental</h1>
+<h2>Manual de Usuario</h2>
+<div class="cover-line"></div>
+<p class="subtitle">Guia completa para gestionar tu consultorio dental</p>
+<div class="cover-info">
+<span>Dra. Brenda Bustamante</span><span>Celaya, Guanajuato</span><span>2026</span>
+</div>
+</div>
+</div>
+
+<div class="page">
+
+<!-- ====== INTRO ====== -->
+<div class="section">
+<h2>Bienvenida, Dra. Brenda</h2>
+<p>Este manual te guiara paso a paso en el uso de <strong>Be Dental</strong>, el sistema digital para gestionar tu consultorio. Aqui podras administrar pacientes, historiales clinicos, citas, horarios y servicios de forma sencilla.</p>
+<p><strong>No necesitas conocimientos tecnicos.</strong> Todo esta disenado para que puedas usarlo facilmente desde tu computadora o celular.</p>
+<div class="tip"><strong>Acceso rapido:</strong> El sistema esta disponible en internet en cualquier momento. Solo necesitas tu usuario y contrasena.</div>
+</div>
+
+<!-- ====== TOC ====== -->
+<div class="toc">
+<h2>Indice</h2>
+<ol>
+<li><a href="#s1">Como ingresar al sistema</a></li>
+<li><a href="#s2">El Panel Principal (Dashboard)</a></li>
+<li><a href="#s3">Gestionar Pacientes</a></li>
+<li><a href="#s4">Llenar una Historia Clinica</a></li>
+<li><a href="#s5">Agenda de Citas</a></li>
+<li><a href="#s6">Configurar tu Horario</a></li>
+<li><a href="#s7">Catalogo de Servicios</a></li>
+<li><a href="#s8">Portal para Pacientes</a></li>
+</ol>
+</div>
+
+<!-- ====== S1: LOGIN ====== -->
+<div class="section" id="s1">
+<div class="section-number">1</div>
+<h2>Como ingresar al sistema</h2>
+<p>Para acceder al panel de administracion, sigue estos pasos:</p>
+
+<div class="steps">
+<div class="step"><div class="step-num">1</div><div class="step-content"><strong>Abre el sistema</strong><span>Ingresa a la direccion web que se te proporciono. Veras la pagina principal de Be Dental con informacion del consultorio.</span></div></div>
+<div class="step"><div class="step-num">2</div><div class="step-content"><strong>Dirigete al login</strong><span>Agrega <code>/admin/login</code> al final de la direccion web, o solicita el enlace directo al administrador.</span></div></div>
+<div class="step"><div class="step-num">3</div><div class="step-content"><strong>Ingresa tus credenciales</strong><span>Escribe tu usuario y contrasena en el formulario.</span></div></div>
+<div class="step"><div class="step-num">4</div><div class="step-content"><strong>Haz clic en "Ingresar"</strong><span>Seras redirigida al Panel Principal (Dashboard).</span></div></div>
+</div>
+
+<img src="img/03-login.png" alt="Pantalla de login">
+<p class="img-caption">Pantalla de inicio de sesion. Ingresa tu usuario y contrasena.</p>
+
+<div class="tip"><strong>Importante:</strong> No compartas tu contrasena con nadie. Si la olvidas, contacta al administrador del sistema.</div>
+</div>
+
+<!-- ====== S2: DASHBOARD ====== -->
+<div class="section" id="s2">
+<div class="section-number">2</div>
+<h2>El Panel Principal (Dashboard)</h2>
+<p>Al ingresar, veras el <strong>Dashboard</strong>. Es tu panel de control con un resumen de todo el consultorio.</p>
+
+<h3 style="font-size:1rem;font-weight:600;color:var(--gray-900);margin:1.25rem 0 .5rem">Que informacion muestra:</h3>
+<ul>
+<li><strong>Pacientes:</strong> Total de pacientes registrados.</li>
+<li><strong>Citas hoy:</strong> Cuantas citas tienes programadas para el dia de hoy.</li>
+<li><strong>En proceso:</strong> Citas que estan siendo atendidas en este momento.</li>
+<li><strong>Ingresos hoy:</strong> Dinero recibido por anticipos de citas completadas hoy.</li>
+</ul>
+
+<img src="img/04-dashboard.png" alt="Dashboard principal">
+<p class="img-caption">Panel principal con estadisticas y accesos rapidos a todas las secciones.</p>
+
+<h3 style="font-size:1rem;font-weight:600;color:var(--gray-900);margin:1.25rem 0 .5rem">Accesos rapidos:</h3>
+<p>Desde el dashboard puedes ir directamente a:</p>
+<ul>
+<li><strong>Citas:</strong> Calendario y gestion de citas.</li>
+<li><strong>Pacientes:</strong> Lista de pacientes y sus historiales clinicos.</li>
+<li><strong>Horario:</strong> Configurar tus dias y horas de atencion.</li>
+<li><strong>Servicios:</strong> Catalogo de tratamientos y precios.</li>
+</ul>
+
+<h3 style="font-size:1rem;font-weight:600;color:var(--gray-900);margin:1.25rem 0 .5rem">Consultar ingresos:</h3>
+<p>En la parte inferior puedes seleccionar un rango de fechas (Desde / Hasta) y hacer clic en <strong>"Consultar"</strong> para ver el total de ingresos en ese periodo.</p>
+</div>
+
+<!-- ====== S3: PACIENTES ====== -->
+<div class="section" id="s3">
+<div class="section-number">3</div>
+<h2>Gestionar Pacientes</h2>
+<p>En esta seccion puedes ver, buscar y agregar pacientes.</p>
+
+<h3 style="font-size:1rem;font-weight:600;color:var(--gray-900);margin:1.25rem 0 .5rem">Como buscar un paciente:</h3>
+<div class="steps">
+<div class="step"><div class="step-num">1</div><div class="step-content"><strong>Escribe en el buscador</strong><span>Puedes buscar por nombre, telefono o codigo (ej: CLI-001).</span></div></div>
+<div class="step"><div class="step-num">2</div><div class="step-content"><strong>Selecciona al paciente</strong><span>Haz clic sobre el nombre para ver su ficha completa.</span></div></div>
+</div>
+
+<h3 style="font-size:1rem;font-weight:600;color:var(--gray-900);margin:1.25rem 0 .5rem">Como agregar un paciente nuevo:</h3>
+<div class="steps">
+<div class="step"><div class="step-num">1</div><div class="step-content"><strong>Completa el formulario</strong><span>Escribe el nombre y telefono del paciente (minimo).</span></div></div>
+<div class="step"><div class="step-num">2</div><div class="step-content"><strong>Haz clic en "Agregar"</strong><span>El sistema le asignara un codigo unico automaticamente (CLI-XXX).</span></div></div>
+</div>
+
+<img src="img/05-pacientes.png" alt="Lista de pacientes">
+<p class="img-caption">Lista de pacientes con buscador y formulario para agregar nuevos.</p>
+
+<h3 style="font-size:1rem;font-weight:600;color:var(--gray-900);margin:1.25rem 0 .5rem">Ficha del paciente:</h3>
+<p>Al hacer clic en un paciente, veras:</p>
+<ul>
+<li>Datos personales (telefono, fecha de nacimiento, direccion).</li>
+<li>Boton para <strong>Editar</strong> la informacion.</li>
+<li>Boton <strong>"Nueva Cita"</strong> para agendarle directamente.</li>
+<li>Historial de consultas anteriores.</li>
+<li>Formulario completo de <strong>Historia Clinica</strong> (ver siguiente seccion).</li>
+</ul>
+
+<div class="tip"><strong>Codigo de paciente:</strong> Cada paciente tiene un codigo unico (CLI-001, CLI-002...). Los pacientes pueden usar este codigo para agendar citas en el portal publico.</div>
+</div>
+
+<!-- ====== S4: HISTORIA CLINICA ====== -->
+<div class="section" id="s4">
+<div class="section-number">4</div>
+<h2>Llenar una Historia Clinica</h2>
+<p>La historia clinica es el expediente medico de cada paciente. Se llena desde la ficha del paciente.</p>
+
+<h3 style="font-size:1rem;font-weight:600;color:var(--gray-900);margin:1.25rem 0 .5rem">Secciones de la historia clinica:</h3>
+
+<div class="steps">
+<div class="step"><div class="step-num">1</div><div class="step-content"><strong>Datos Generales</strong><span>Muestra el nombre, edad y telefono del paciente. Escribe el <strong>Motivo de la Consulta</strong>.</span></div></div>
+<div class="step"><div class="step-num">2</div><div class="step-content"><strong>Antecedentes Heredo-Familiares (AHF)</strong><span>Selecciona las enfermedades que tenga el paciente en su familia. Usa los botones para marcar/desmarcar. Si seleccionas "Otro", escribe cual.</span></div></div>
+<div class="step"><div class="step-num">3</div><div class="step-content"><strong>Antecedentes Personales Patologicos (APP)</strong><span>Responde <span class="btn btn-green">SI</span> o <span class="btn btn-red">NO</span> a cada pregunta. Si el paciente es alergico a medicamentos, especifica a cual.</span></div></div>
+<div class="step"><div class="step-num">4</div><div class="step-content"><strong>Enfermedades</strong><span>Marca las enfermedades que padece el paciente. Puedes agregar otra si no aparece en la lista.</span></div></div>
+<div class="step"><div class="step-num">5</div><div class="step-content"><strong>Antecedentes No Patologicos (ANP)</strong><span>Frecuencia de visita al dentista, ultima visita, cepillado diario, uso de accesorios de higiene y habitos.</span></div></div>
+<div class="step"><div class="step-num">6</div><div class="step-content"><strong>Diagnostico y Plan de Tratamiento</strong><span>Selecciona los servicios realizados, ingresa el anticipo, escribe el diagnostico, pronostico, plan de tratamiento y tratamiento realizado.</span></div></div>
+<div class="step"><div class="step-num">7</div><div class="step-content"><strong>Guardar</strong><span>Haz clic en <strong>"Guardar Historia Clinica"</strong> al final del formulario. El sistema confirmara que se guardo correctamente.</span></div></div>
+</div>
+
+<img src="img/06-paciente-detalle.png" alt="Historia clinica del paciente">
+<p class="img-caption">Formulario completo de historia clinica con todas sus secciones expandibles.</p>
+
+<div class="tip"><strong>Consejo:</strong> Puedes cerrar/abrir cada seccion haciendo clic en el titulo de la misma. Asi es mas facil navegar en formularios largos.</div>
+</div>
+
+<!-- ====== S5: CITAS ====== -->
+<div class="section" id="s5">
+<div class="section-number">5</div>
+<h2>Agenda de Citas</h2>
+<p>El calendario de citas te permite ver, crear y gestionar todas las citas del consultorio.</p>
+
+<h3 style="font-size:1rem;font-weight:600;color:var(--gray-900);margin:1.25rem 0 .5rem">Como crear una cita:</h3>
+<div class="steps">
+<div class="step"><div class="step-num">1</div><div class="step-content"><strong>Haz clic en una fecha</strong><span>En el calendario, selecciona el dia deseado.</span></div></div>
+<div class="step"><div class="step-num">2</div><div class="step-content"><strong>Selecciona al paciente</strong><span>Puedes buscar un paciente existente o crear uno nuevo. Escribe el nombre y seleccionalo de la lista.</span></div></div>
+<div class="step"><div class="step-num">3</div><div class="step-content"><strong>Elige la hora</strong><span>El sistema solo muestra horarios disponibles (no ocupados ni bloqueados).</span></div></div>
+<div class="step"><div class="step-num">4</div><div class="step-content"><strong>Completa los datos</strong><span>Servicio, monto, anticipo y tipo de pago. Todos los campos son opcionales excepto paciente, fecha y hora.</span></div></div>
+<div class="step"><div class="step-num">5</div><div class="step-content"><strong>Haz clic en "Crear Cita"</strong><span>La cita aparecera en el calendario.</span></div></div>
+</div>
+
+<h3 style="font-size:1rem;font-weight:600;color:var(--gray-900);margin:1.25rem 0 .5rem">Estados de las citas:</h3>
+<ul>
+<li><span class="btn">Pendiente</span> — Recien creada, esperando confirmacion.</li>
+<li><span class="btn btn-blue">Confirmada</span> — El paciente confirmo su asistencia.</li>
+<li><span class="btn" style="background:#fef3c7;color:#d97706;border-color:#fde68a">En Proceso</span> — El paciente esta siendo atendido.</li>
+<li><span class="btn btn-green">Completada</span> — La cita ya termino.</li>
+<li><span class="btn btn-red">Cancelada</span> — La cita fue cancelada.</li>
+</ul>
+
+<img src="img/07-citas.png" alt="Calendario de citas">
+<p class="img-caption">Vista de calendario con las citas del dia y panel para crear/editar citas.</p>
+
+<div class="tip"><strong>Cambiar estado:</strong> Haz clic en una cita para ver sus detalles. Desde ahi puedes cambiar el estado (ej: de "Pendiente" a "En Proceso" cuando el paciente llegue).</div>
+</div>
+
+<!-- ====== S6: HORARIO ====== -->
+<div class="section" id="s6">
+<div class="section-number">6</div>
+<h2>Configurar tu Horario</h2>
+<p>Aqui defines los dias y horas en que atiendes. Esto controla que horarios aparecen disponibles al agendar citas.</p>
+
+<h3 style="font-size:1rem;font-weight:600;color:var(--gray-900);margin:1.25rem 0 .5rem">Como configurar:</h3>
+<div class="steps">
+<div class="step"><div class="step-num">1</div><div class="step-content"><strong>Activa o desactiva dias</strong><span>Usa el interruptor junto a cada dia para activarlo (atiendes) o desactivarlo (no atiendes).</span></div></div>
+<div class="step"><div class="step-num">2</div><div class="step-content"><strong>Ajusta las horas</strong><span>Puedes modificar la hora de inicio y fin de cada bloque (manana y tarde).</span></div></div>
+<div class="step"><div class="step-num">3</div><div class="step-content"><strong>Agrega bloqueos</strong><span>Si necesitas bloquear un dia u hora especifica (ej: vacaciones, junta), usa la seccion de bloqueos.</span></div></div>
+</div>
+
+<img src="img/08-horario.png" alt="Configuracion de horario">
+<p class="img-caption">Panel de horario semanal con activacion por dia y gestion de bloqueos.</p>
+
+<div class="tip"><strong>Bloqueos:</strong> Sirven para dias feriados, vacaciones o cualquier fecha donde no atiendas. El sistema no mostrara horarios disponibles en esas fechas/horas bloqueadas.</div>
+</div>
+
+<!-- ====== S7: SERVICIOS ====== -->
+<div class="section" id="s7">
+<div class="section-number">7</div>
+<h2>Catalogo de Servicios</h2>
+<p>Administra la lista de tratamientos que ofreces, con sus precios y duracion.</p>
+
+<h3 style="font-size:1rem;font-weight:600;color:var(--gray-900);margin:1.25rem 0 .5rem">Como agregar o editar un servicio:</h3>
+<div class="steps">
+<div class="step"><div class="step-num">1</div><div class="step-content"><strong>Ve a la seccion Servicios</strong><span>Desde el menu lateral o el acceso rapido del dashboard.</span></div></div>
+<div class="step"><div class="step-num">2</div><div class="step-content"><strong>Para crear:</strong><span>Haz clic en "Nuevo Servicio", completa el formulario (nombre, categoria, precio, duracion en minutos) y guarda.</span></div></div>
+<div class="step"><div class="step-num">3</div><div class="step-content"><strong>Para editar:</strong><span>Haz clic en el servicio existente, modifica los campos y guarda los cambios.</span></div></div>
+<div class="step"><div class="step-num">4</div><div class="step-content"><strong>Para desactivar:</strong><span>Usa el boton de eliminar. El servicio se ocultara sin borrarse permanentemente.</span></div></div>
+</div>
+
+<img src="img/09-servicios.png" alt="Catalogo de servicios">
+<p class="img-caption">Lista de servicios dentales organizados por categoria.</p>
+
+<div class="tip"><strong>Categorias:</strong> Los servicios se agrupan en: Consultas, Estetica, Endodoncia, Cirugia, Protesis y Ortodoncia. Esto ayuda a organizar mejor tu catalogo.</div>
+</div>
+
+<!-- ====== S8: PORTAL ====== -->
+<div class="section" id="s8">
+<div class="section-number">8</div>
+<h2>Portal para Pacientes</h2>
+<p>Be Dental incluye un portal publico donde tus pacientes pueden:</p>
+<ul>
+<li>Ver informacion del consultorio y servicios.</li>
+<li><strong>Agendar su propia cita</strong> siguiendo un asistente paso a paso.</li>
+</ul>
+
+<h3 style="font-size:1rem;font-weight:600;color:var(--gray-900);margin:1.25rem 0 .5rem">Como agenda un paciente desde el portal:</h3>
+<div class="steps">
+<div class="step"><div class="step-num">1</div><div class="step-content"><strong>El paciente entra al portal</strong><span>Ve la pagina principal con informacion del consultorio.</span></div></div>
+<div class="step"><div class="step-num">2</div><div class="step-content"><strong>Hace clic en "Agendar Cita"</strong><span>Comienza el asistente de 5 pasos.</span></div></div>
+<div class="step"><div class="step-num">3</div><div class="step-content"><strong>Selecciona servicio</strong><span>Elige el tratamiento que necesita.</span></div></div>
+<div class="step"><div class="step-num">4</div><div class="step-content"><strong>Elige fecha y hora</strong><span>Solo ve los horarios disponibles segun tu configuracion.</span></div></div>
+<div class="step"><div class="step-num">5</div><div class="step-content"><strong>Ingresa sus datos</strong><span>Si ya es paciente, puede usar su codigo (CLI-XXX). Si es nuevo, se registra con nombre y telefono.</span></div></div>
+</div>
+
+<img src="img/01-portal.png" alt="Portal publico">
+<p class="img-caption">Pagina principal del portal publico que ven los pacientes.</p>
+
+<img src="img/02-agendar.png" alt="Wizard de agendar cita">
+<p class="img-caption">Asistente paso a paso para que los pacientes agenden sus citas.</p>
+
+<div class="tip"><strong>Ventaja:</strong> Los pacientes pueden agendar sus citas sin llamarte. Tu solo revisas el calendario y confirmas. Las citas aparecen automaticamente como "Pendientes".</div>
+</div>
+
+<!-- ====== FOOTER ====== -->
+<div class="section" style="text-align:center;background:var(--blue-light);border-color:transparent">
+<p style="color:var(--blue-dark);margin:0;font-weight:600">Be Dental &mdash; Tu sonrisa, nuestra pasion</p>
+<p style="color:var(--gray-500);margin:.25rem 0 0;font-size:.85rem">Sistema desarrollado por GLA (GrowLink Agency)</p>
+</div>
+
+</div>
+</body>
+</html>
